@@ -1,0 +1,53 @@
+
+% This is a LaTex template for scribe notes for 
+% CS 6170: Computational Topology. 
+% This template is adapted from a template thanks to 
+% Jeff A. Bilmes @ U. Washington and Alistair Sinclair @ Berkeley. 
+
+
+\documentclass[12pt]{article}
+\usepackage{times,amsmath,amsthm,amsfonts,eucal,graphicx}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\evensidemargin}{-0.25 in}
+\setlength{\topmargin}{-0.6 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+
+\begin{document}
+\title {Using Mapper in a Recommendation System}
+
+\author{
+Christopher James Brooks\\ 
+Gurupragaash Annasamy Mani}
+
+\maketitle
+
+\section{Project Overview}
+We will use Mapper~\cite{Lum2013} on large datasets to see if we can find any interesting clustering that differs from the usual \textit{k}-means in ways that depend on the shape of the data.
+
+\section{Technical Details}
+We are going to analyze a large collection of Netflix users' movie ratings~\cite{Netflix} using the mapper algorithm. To use mapper, we need to represent the data as a point cloud and we need to have a notion of distance between data points that reflects the similarity of users' preferences. We can do this in two ways. 
+\begin{itemize}
+  \item Sum of difference between their movie ratings.
+  \item Sort the ratings and find how many swaps are needed to make both the lists identical 
+\end{itemize}
+We also need a filter function mapping users to $\mathbb{R}^1$ or $\mathbb{R}^2$. We will be using L-infinity centrality as our filter function, which will map the users to $\mathbb{R}^1$. 
+
+Finally, we will also use a more traditional clustering technique(\textit{k}-means) as a concrete way of comparing the two methods.
+
+\section{Intellectual merit}
+We've found that recommendation systems in general give suggestions that are not always unexpected or illuminating, so we hope to find that the mapper based clustering will reveal some heuristic for evaluating the similarities between users' preferences that is non-trivial.
+
+\section{Expected Outcome}
+We expect to find that the clustering from mapper and from \textit{k}-means give different results, and that these results can be used to make better recommendations in the best case.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+\end{document}
