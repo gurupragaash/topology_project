@@ -3,4 +3,5 @@
 *.gz
 *.bbl
 *.blg
+*.out
 proposal.pdf
